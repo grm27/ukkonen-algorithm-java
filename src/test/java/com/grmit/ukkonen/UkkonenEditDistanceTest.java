@@ -60,7 +60,7 @@ class UkkonenEditDistanceTest {
 
 
     @ParameterizedTest(name = "Comparing edit distances between {0}")
-    @MethodSource("generateRandomStringPair")
+    @MethodSource("generateRandomStringPairs")
     @DisplayName("Random string comparison between Levenshtein and Ukkonen methods with timing")
     public void testUkkonenVsLevenshteinRandom(String[] pair) {
         String a = pair[0];
@@ -78,7 +78,7 @@ class UkkonenEditDistanceTest {
         System.out.printf("Random Test - Levenshtein time: %d ns, Ukkonen time: %d ns%n", levenshteinElapsed, ukkonenElapsed);
     }
 
-    private static List<Arguments> generateRandomStringPair() {
+    private static List<Arguments> generateRandomStringPairs() {
         Random random = new Random();
         // Generate a stream of 100 random string pairs
         return IntStream.range(0, 100)
